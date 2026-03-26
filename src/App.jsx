@@ -7,6 +7,16 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  useEffect(() => {
+    if (count > 10) {
+      alert("¡Límite alcanzado! El valor máximo es 10.")
+      setCount(10)
+    }
+    if (count < 0) {
+      setCount(0)
+    }
+  }, [count])
+
   return (
     <>
       <section id="center">
