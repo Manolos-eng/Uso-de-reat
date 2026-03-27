@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -12,6 +12,7 @@ function App() {
       alert("¡Límite alcanzado! El valor máximo es 10.")
       setCount(10)
     }
+    
     if (count < 0) {
       setCount(0)
     }
@@ -31,12 +32,18 @@ function App() {
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
         </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+
+        <div>
+          <button onClick={() => setCount((count) => count - 1)}>
+            Decrementar (-)
+          </button>
+
+          <button onClick={() => setCount((count) => count + 1)}>
+            Incrementar (+)
+          </button>
+        </div>
+        
+        <h2>Count is {count}</h2>
       </section>
 
       <div className="ticks"></div>
